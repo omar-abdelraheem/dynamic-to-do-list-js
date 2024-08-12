@@ -7,22 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (taskText === "") {
       alert("please enter a task");
     } else {
-      document.createElement("li").textContent = taskText;
-      document
-        .createElement("button")
-        .textContent("Remove")
-        .classList.add("remove-btn")
-        .addEventListener("click", () => {
-          textContent.remove();
-          textContent.appendChild(Remove);
-          taskList.appendChild(textContent);
-          taskInput.value = "";
-        });
+      const todo = document.createElement("li");
+      todo.textContent = taskText;
+      taskList.appendChild(todo);
+      taskInput.value = "";
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "Remove";
+      removeBtn.classList.add("remove-btn");
+      todo.appendChild(removeBtn);
+      removeBtn.addEventListener("click", () => {
+        todo.remove();
+      });
     }
   };
-  addButton.addEventListener("click", addTask());
-  taskInput.addEventListener("keypress", () => {
-    if (Event.key === "Enter") {
+  addButton.addEventListener("click", addTask);
+  taskInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
       addTask();
     }
   });
