@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     taskList.querySelectorAll("li").forEach((task) => {
       tasks.push(task.firstChild.textContent); // Save only the task text, excluding the "Remove" button text
     });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("loadTasks", JSON.stringify(tasks));
   };
 
   // Function to add a task
